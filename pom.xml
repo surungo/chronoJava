@@ -4,9 +4,10 @@
   <artifactId>chronoJava</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>app-client</packaging>
-  <name>chrono</name>
+  <name>chronoJava</name>
   <build>
-    <sourceDirectory>appClientModule</sourceDirectory>
+    <finalName>chronojava</finalName>
+	<sourceDirectory>appClientModule</sourceDirectory>
     <resources>
       <resource>
         <directory>appClientModule</directory>

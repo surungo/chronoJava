@@ -1,18 +1,15 @@
 package chrono;
 
-import java.awt.EventQueue;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.util.HashMap;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
-import java.awt.Color;
-
 import javax.swing.SwingConstants;
 
 import AWT.MoveMouseListener;
-
-import java.awt.Font;
 
 public class ChronoView {
 
