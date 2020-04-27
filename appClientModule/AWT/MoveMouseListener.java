@@ -21,8 +21,8 @@ public class MoveMouseListener implements MouseListener, MouseMotionListener {
 	}
 	
 	public MoveMouseListener(ChronoView chronoview_in) {
-		this.frame = chronoview.frame;
 		this.chronoview = chronoview_in;
+		this.frame = chronoview.frame;
 	}
 
 	public static JFrame getFrame(Container target) {
@@ -51,7 +51,7 @@ public class MoveMouseListener implements MouseListener, MouseMotionListener {
 			System.exit(0);
 			//System.out.println("Click at (" + e.getX() + ":" + e.getY() + ") and it's a double click!");
 		}else {
-			//this.chronoview.rodar();
+			this.chronoview.pause();
 			//System.out.println("Click at (" + e.getX() + ":" + e.getY() + ") and it's a simple click!");
 		}
 	}
