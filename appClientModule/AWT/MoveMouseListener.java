@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
+import javax.swing.ToolTipManager;
 
 import chrono.ChronoView;
 
@@ -57,9 +58,11 @@ public class MoveMouseListener implements MouseListener, MouseMotionListener {
 	}
 	
 	public void mouseEntered(MouseEvent e) {
+		
 	}
 
 	public void mouseExited(MouseEvent e) {
+		
 	}
 
 	public void mousePressed(MouseEvent e) {
