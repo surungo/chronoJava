@@ -1,11 +1,13 @@
 package clipboard.services;
 
-import java.awt.Button;
+import AWT.WindowEventMenu;
 
-public class ExitService  extends Button{
+import java.awt.*;
 
-	public ExitService(String label) {
-		super(label);
+public class ExitService  extends JButtonI{
+	public ExitService(String label, WindowEventMenu wem) {
+		super(label,wem);
+		this.setBackground(Color.RED);
 	}
 	public String getActionCommand() {
 		System.exit(0);

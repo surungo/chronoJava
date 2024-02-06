@@ -6,11 +6,11 @@ import clipboard.Clipboard;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TesteSwagger extends ButtonI {
+public class OpenSwaggerActuator extends ButtonI {
 
 	private String out = "";
-
-	public TesteSwagger(String label, WindowEventMenu wem) {
+	
+	public OpenSwaggerActuator(String label, WindowEventMenu wem) {
 		super(label, wem);
 	}
 
@@ -24,7 +24,8 @@ public class TesteSwagger extends ButtonI {
 		
 		List<String> endpoints = new ArrayList();
 		endpoints.add("/swagger-ui.html");
-
+		endpoints.add("/actuator/health");
+		
 		List<String> urls = new ArrayList();
 		out=Useful.openUrls(envs, endpoints, clip, urls, app, run);
 		Clipboard.setClipboard(out);

@@ -6,11 +6,11 @@ import java.util.List;
 import AWT.WindowEventMenu;
 import clipboard.Clipboard;
 
-public class TesteActuator extends ButtonI {
+public class OpenActuator extends ButtonI {
 
 	private String out = "";
 	
-	public TesteActuator(String label, WindowEventMenu wem) {
+	public OpenActuator(String label, WindowEventMenu wem) {
 		super(label, wem);
 	}
 

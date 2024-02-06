@@ -6,19 +6,12 @@ import util.MyStringUtils;
 
 import java.awt.*;
 
-public class CutRightLines extends Button {
-
-	private WindowEventMenu wem;
-
-	public CutRightLines(String label) {
-		super(label);
-	}
-
+public class CutRightLines extends JButtonI {
 	public CutRightLines(String label, WindowEventMenu wem ) {
-		super(label);
-		this.wem= wem;
+		super(label,wem);
+		this.setBackground(Color.green);
+		this.setToolTipText("Adicione novo size no campo Para");
 	}
-
 	public String getActionCommand() {
 		String clip = Clipboard.getClipboard();
 		String split[] = clip.split("\\n");

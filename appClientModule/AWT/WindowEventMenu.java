@@ -12,15 +12,12 @@ import java.awt.TextField;
 import java.awt.Toolkit;
 import java.awt.Window;
 // Using AWT events classes and listener interfaces
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.event.*;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import clipboard.Clipboard;
 import clipboard.services.*;
@@ -50,10 +47,12 @@ public class WindowEventMenu extends Frame implements ActionListener, WindowList
 	private TextArea save1TextArea = new TextArea("",SAVES_COL_TEXTAREA,SAVES_ROWS_TEXTAREA);
 	private TextArea save2TextArea = new TextArea("",SAVES_COL_TEXTAREA,SAVES_ROWS_TEXTAREA);
 	private Map<String, Button> btns = null;
+	private Map<String, JButton> jbtns = null;
 	private int count = 0; // Counter's value
 
 	// Constructor to setup the GUI components and event handlers
 	public WindowEventMenu() {
+
 		setLayout(new FlowLayout()); // "super" Frame sets to FlowLayout
 
 		JPanel panel01 = new JPanel();
@@ -93,12 +92,13 @@ public class WindowEventMenu extends Frame implements ActionListener, WindowList
 		panel06.add(new Label("TXAREA"));
 		panel06.add(commentTextArea);
 		add(panel06);
-		
-		
+
+
 
 		btns = new HashMap<>();
+		jbtns = new HashMap<>();
 
-		addButton(new ExitService("Exit"));
+		addButton(new ExitService("Exit",this));
 		addButton(new ClearTextArea("ClearTxArea",this));
 		addButton(new ClipSaveTxArea("SaveTxArea",this));
 		addButton(new ClipLoadTxArea("LoadTxArea",this));
@@ -114,9 +114,9 @@ public class WindowEventMenu extends Frame implements ActionListener, WindowList
 		addButton(new SqlColunmToJavaParam("SqlColunmToJavaParam",this));
 		addButton(new FormatterSqlQueryClip("FormatterSqlQueryClip",this));
 
-		addButton(new TesteActuator("TesteActuator",this));
-		addButton(new TesteSwagger("TesteSwagger",this));
-		addButton(new TesteSwaggerActuator("TesteSwaggerActuator",this));
+		addButton(new OpenActuator("OpenActuator",this));
+		addButton(new OpenSwagger("OpenSwagger",this));
+		addButton(new OpenSwaggerActuator("OpenSwaggerActuator",this));
 		addButton(new OpenUrlsClip("OpenUrlsClip",this));
 		addButton(new OpenUrlsParamsClip("OpenUrlsParamsClip",this));		
 		addButton(new ClipToMorse("ClipToMorse",this));
@@ -132,8 +132,8 @@ public class WindowEventMenu extends Frame implements ActionListener, WindowList
 		addButton(new CutLeft("CutLeft",this));
 		addButton(new CutRightLines("CutRightLines",this));
 		addButton(new CutLeftLines("CutLeftLines",this));
-		addButton(new AnaliseTexto("AnaliseTexto",this));
-		addButton(new AnaliseJson("AnaliseJson",this));
+		//addButton(new AnaliseTexto("AnaliseTexto",this));
+		//addButton(new AnaliseJson("AnaliseJson",this));
 
 		addButton(new DvMatricula("DvMatricula",this));
 		addButton(new Length("Length",this));
@@ -180,7 +180,10 @@ public class WindowEventMenu extends Frame implements ActionListener, WindowList
 		setSize(SIZE_WIDTH, SIZE_HEIGHT); // "super" Frame sets initial size
 		setVisible(true); // "super" Frame shows
 	}
-
+	private void addButton(JButton bt) {
+		jbtns.put(bt.getLabel(), bt);
+		add(bt);
+	}
 	private void addButton(Button bt) {
 		btns.put(bt.getLabel(), bt);
 		add(bt);

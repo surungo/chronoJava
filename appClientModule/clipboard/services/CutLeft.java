@@ -6,19 +6,12 @@ import util.MyStringUtils;
 
 import java.awt.*;
 
-public class CutLeft extends Button {
-
-	private WindowEventMenu wem;
-
-	public CutLeft(String label) {
-		super(label);
-	}
-
+public class CutLeft extends JButtonI {
 	public CutLeft(String label, WindowEventMenu wem ) {
-		super(label);
-		this.wem= wem;
+		super(label,wem);
+		this.setBackground(Color.green);
+		this.setToolTipText("Adicione novo size no campo Para");
 	}
-
 	public String getActionCommand() {
 		String clip = Clipboard.getClipboard();
 		clip = MyStringUtils.cutLeft(clip, wem.getIntPara());
